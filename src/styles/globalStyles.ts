@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
     * {
         box-sizing : border-box;
-        background-color: #f7f7f7;
+        /* background-color: #f7f7f7; */
       }
   
   }

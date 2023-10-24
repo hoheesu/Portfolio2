@@ -12,7 +12,7 @@ function Header() {
           Yoon JunSu
         </Logo>
       </LogoBox>
-      <Nav>
+      <nav>
         <Ul>
           <Depth1li>
             <TitleNumber>01</TitleNumber>
@@ -35,7 +35,7 @@ function Header() {
             <HeaderTitle>Contact</HeaderTitle>
           </Depth1li>
         </Ul>
-      </Nav>
+      </nav>
     </FlexBox>
   );
 }
@@ -47,21 +47,22 @@ const FlexBox = styled.header`
   display: flex;
   justify-content: space-between;
   cursor: url("/images/mouse-normal.svg"), auto;
+  padding: 1rem;
+  height: max-content;
+  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(100px); */
 `;
 const Logo = styled.h1`
   font-family: "Anton", sans-serif;
   font-size: 1.5rem;
 `;
-const Nav = styled.nav`
-  width: 60vw;
-  padding: 0 20px;
-`;
-
 const Ul = styled.ul`
   display: flex;
   justify-content: space-between;
 `;
 const Depth1li = styled.li`
+  width: 15rem;
+  margin-left: 5rem;
   &:hover {
     & > ul {
       transform: scaleY(1);
