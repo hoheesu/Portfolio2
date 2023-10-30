@@ -10,6 +10,12 @@ const GlobalStyles = createGlobalStyle`
         box-sizing : border-box;
         /* background-color: #f7f7f7; */
       }
+      .left-box {
+        width: 40%;
+      }
+      .right-box {
+        width: 60%;
+      }
   
   }
 

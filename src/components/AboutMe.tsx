@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { BiRename, BiMailSend } from "react-icons/bi";
+import { FaBirthdayCake, FaSearchLocation } from "react-icons/fa";
 
 function AboutMe() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -14,10 +16,32 @@ function AboutMe() {
   }, []);
   return (
     <AboutMeContainer>
-      <LeftBox>
-        <img src="/images/faceIcon.png" alt="" />
+      <LeftBox className="left-box">
+        <img src="/images/faceIcon.png" alt="Face Icon" />
+        <ul>
+          <li>
+            <BiRename />
+            <p>이름</p>
+            <p>윤준수</p>
+          </li>
+          <li>
+            <FaBirthdayCake />
+            <p>생년월일</p>
+            <p>2001.01.31</p>
+          </li>
+          <li>
+            <FaSearchLocation />
+            <p>주소지</p>
+            <p>서울시 강동구</p>
+          </li>
+          <li>
+            <BiMailSend />
+            <p>E-Mail</p>
+            <p>hoheesu1@naver.com</p>
+          </li>
+        </ul>
       </LeftBox>
-      <RightBox>
+      <RightBox className="right-box">
         <p
           className={
             scrollPosition > 200 && scrollPosition < 1000
@@ -49,13 +73,19 @@ function AboutMe() {
 }
 const AboutMeContainer = styled.div`
   display: flex;
-  height: 200vh;
+  /* justify-content: center; */
+  align-items: center;
+  height: 85vh;
 `;
 const LeftBox = styled.div``;
 const RightBox = styled.div`
+  p {
+    line-height: 1.5rem;
+  }
   .scroll-text {
     strong {
       font-weight: 500;
+      font-size: 1.2rem;
       color: #1261d6;
       transition: 0.7s;
     }

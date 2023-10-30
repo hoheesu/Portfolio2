@@ -46,11 +46,14 @@ const FlexBox = styled.header`
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  cursor: url("/images/mouse-normal.svg"), auto;
+  cursor: url("/images/mouse-dark.svg"), auto;
   padding: 1rem;
-  height: max-content;
-  backdrop-filter: blur(3px);
-  /* backdrop-filter: blur(100px); */
+  backdrop-filter: blur(2px);
+  &:hover {
+    background-color: #333333dd;
+    color: #fff;
+    backdrop-filter: blur(2px);
+  }
 `;
 const Logo = styled.h1`
   font-family: "Anton", sans-serif;
