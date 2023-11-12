@@ -84,7 +84,7 @@ const Depth2ul = styled.ul`
 `;
 const Depth2li = styled.li`
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.2rem;
 `;
 const LogoBox = styled.div``;
 export default Header;

@@ -4,7 +4,10 @@ import { styled } from "styled-components";
 function Skills() {
   return (
     <SkillContainer>
-      <></>
+      <div>
+        <label htmlFor="">Front-end</label>
+      </div>
+      <div></div>
     </SkillContainer>
   );
 }

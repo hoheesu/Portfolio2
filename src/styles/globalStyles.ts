@@ -12,6 +12,9 @@ const GlobalStyles = createGlobalStyle`
       }
       .left-box {
         width: 40%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
       }
       .right-box {
         width: 60%;
