@@ -132,7 +132,7 @@ const RightBox = styled.div`
     strong {
       font-weight: 500;
       font-size: 1.2rem;
-      color: #1261d6;
+      color: var(--color-blue);
       transition: 1s;
     }
   }

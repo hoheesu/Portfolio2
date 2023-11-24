@@ -13,6 +13,11 @@ const GlobalStyles = createGlobalStyle`
         --color-white: #fff;
         --color-dark-gray: #555;
         --color-gray: #777;
+        --color-blue: #1261d6;
+      }
+      button{
+        border: transparent;
+        background-color: transparent;
       }
       .left-box {
         width: 40%;

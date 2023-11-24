@@ -28,7 +28,6 @@ function App() {
   );
 }
 const Container = styled.div`
-  padding: 0 10rem;
   font-family: "Noto Sans KR", sans-serif;
 `;
 

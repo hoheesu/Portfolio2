@@ -18,7 +18,8 @@ function Header() {
             <TitleNumber>01</TitleNumber>
             <HeaderTitle>About</HeaderTitle>
             <Depth2ul>
-              <Depth2li>skills</Depth2li>
+              <Depth2li>About Me</Depth2li>
+              <Depth2li>Skills</Depth2li>
             </Depth2ul>
           </Depth1li>
           <Depth1li>
@@ -45,6 +46,7 @@ const FlexBox = styled.header`
   top: 0;
   width: 100vw;
   display: flex;
+  height: 15vh;
   justify-content: space-between;
   cursor: url("/images/mouse-dark.svg"), auto;
   padding: 1rem;
@@ -81,7 +83,7 @@ const HeaderTitle = styled.p`
 const Depth2ul = styled.ul`
   transform: scaleY(0);
   transform-origin: 0px 0px;
-  transition: all 0.5s;
+  transition: all 0.3s;
 `;
 const Depth2li = styled.li`
   font-weight: 300;
