@@ -14,7 +14,6 @@ function AboutMe() {
 
   useEffect(() => {
     window.addEventListener("scroll", updateScroll);
-    console.log(scrollPosition);
   }, []);
   return (
     <AboutMeContainer>
@@ -116,7 +115,7 @@ const List = styled.li`
   }
   strong {
     font-size: 1.2rem;
-    color: #333;
+    color: var(--color-black);
     margin-bottom: 0.3rem;
   }
   &:nth-last-child(1) {
@@ -134,13 +133,14 @@ const RightBox = styled.div`
       font-weight: 500;
       font-size: 1.2rem;
       color: #1261d6;
-      /* color: #8c63be; */
-      transition: 0.7s;
+      transition: 1s;
     }
   }
   .scrolled-text {
-    color: #333;
-    transition: 1.5s;
+    color: var(--color-black);
+    strong {
+      transition: 1s;
+    }
   }
 `;
 

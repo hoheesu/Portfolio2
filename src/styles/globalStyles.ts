@@ -8,7 +8,11 @@ const GlobalStyles = createGlobalStyle`
   :root {
     * {
         box-sizing : border-box;
-        /* background-color: #f7f7f7; */
+        /* Color */
+        --color-black: #333;
+        --color-white: #fff;
+        --color-dark-gray: #555;
+        --color-gray: #777;
       }
       .left-box {
         width: 40%;

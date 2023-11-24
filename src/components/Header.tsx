@@ -49,9 +49,10 @@ const FlexBox = styled.header`
   cursor: url("/images/mouse-dark.svg"), auto;
   padding: 1rem;
   backdrop-filter: blur(2px);
+  transition: all 0.5s ease-in;
   &:hover {
-    background-color: #333333dd;
-    color: #fff;
+    background-color: var(--color-black);
+    color: var(--color-white);
     backdrop-filter: blur(2px);
   }
 `;
