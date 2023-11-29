@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import SkillIcon from "./SkillIcon";
+import { getSkillData } from "../api/api";
+
 interface CircleStyle {
   angle: number;
 }
-const skillItems = [
-  "html",
-  "css",
-  "js",
-  "react",
-  "ts",
-  "sass",
-  "redux",
-  "styledComponents",
-];
-const etcItems = ["git", "github", "slack", "figma"];
+
 function Skills() {
   const [leftCircle, setLeftCircle] = useState(false);
   const [rightCircle, setRightCircle] = useState(false);
@@ -26,9 +18,11 @@ function Skills() {
     setRightCircle(!rightCircle);
   }
 
-  useEffect(() => {}, []);
-  const skillIncrement = 360 / skillItems.length;
-  const etcIncrement = 360 / etcItems.length;
+  useEffect(() => {
+    getSkillData();
+  }, []);
+  // const skillIncrement = 360 / skillItems.length;
+  // const etcIncrement = 360 / etcItems.length;
 
   return (
     <SkillContainer className="SkillContainer">
@@ -36,11 +30,11 @@ function Skills() {
         <IconContainer
           className={leftCircle ? "IconContainer active" : "IconContainer"}
         >
-          {skillItems.map((Icon, index) => (
+          {/* {skillItems.map((Icon, index) => (
             <CircleIcon key={index} angle={index * skillIncrement}>
-              <img src={`/images/skill-icons/icon-${Icon}.svg`} alt="" />
+              <SkillIcon key={index} icon={Icon} iconType={"skill"} />
             </CircleIcon>
-          ))}
+          ))} */}
         </IconContainer>
         <Button
           className={leftCircle ? "active" : ""}
@@ -54,16 +48,18 @@ function Skills() {
         <IconContainer
           className={rightCircle ? "IconContainer active" : "IconContainer"}
         >
-          {etcItems.map((Icon, index) => (
+          {/* {etcItems.map((Icon, index) => (
             <CircleIcon key={index} angle={index * etcIncrement}>
-              <img src={`/images/etc-icons/icon-${Icon}.svg`} alt="" />
+              <SkillIcon key={index} icon={Icon} iconType={"etc"} />
             </CircleIcon>
-          ))}
+          ))} */}
         </IconContainer>
         <Button
           className={rightCircle ? "active" : ""}
           onClick={() => rightCircleClick()}
-        ></Button>
+        >
+          Etc
+        </Button>
       </CircleContainer>
     </SkillContainer>
   );
@@ -110,16 +106,17 @@ const CircleIcon = styled.div<CircleStyle>`
   transform: ${(props) =>
     `translate(-50%, -50%) rotate(${props.angle}deg) translate(200px) rotate(-${props.angle}deg)`};
   transition: all 0.5s ease-in-out;
-  > img {
+  img {
     width: 2rem;
     height: 2rem;
     transition: all 0.5s ease-in-out;
   }
   &:hover {
     border: transparent;
-    > img {
-      width: 7rem;
-      height: 7rem;
+    img {
+      width: 6rem;
+      height: 6rem;
+      filter: drop-shadow(5px 5px 5px #33333355);
     }
   }
 `;
@@ -132,15 +129,20 @@ const Button = styled.button`
   border-radius: 50%;
   width: 30rem;
   height: 30rem;
-  box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
+  box-shadow: -5px -5px 10px 0px rgba(0, 0, 0, 0.3),
     5px 5px 10px 0px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
+  font-size: 2.5rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-weight: 700;
   &.active {
     border: transparent;
-    box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5),
-      inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-white);
+    color: var(--color-black);
     width: 15rem;
     height: 15rem;
+    font-size: 2rem;
   }
 `;
 export default Skills;

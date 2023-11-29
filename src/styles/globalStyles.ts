@@ -16,8 +16,6 @@ const GlobalStyles = createGlobalStyle`
         --color-blue: #1261d6;
       }
       button{
-        border: transparent;
-        background-color: transparent;
       }
       .left-box {
         width: 40%;
