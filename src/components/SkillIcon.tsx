@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { skillDataType } from "../type";
 
 interface Props {
-  icon: string;
-  iconType: string;
+  data: skillDataType;
 }
 
 function SkillIcon(props: Props) {
-  console.log(props);
+  const data = props.data;
+  console.log(data.id);
   return (
     <div>
       <img
-        src={`/images/${props.iconType}-icons/icon-${props.icon}.svg`}
-        alt=""
+        src={`/images/${data.type}-icons/icon-${data.id}.svg`}
+        alt={`${data.title}`}
       />
     </div>
   );

@@ -47,7 +47,9 @@
       "title": "CSS3",
       "type": "skill",
       "detail": "position, flex-box등을 이해하고 적절히 사용하여 반응형웹을 적용할 수 있습니다."
-    },
+    }
+  ],
+  "tool": [
     {
       "id": "git",
       "title": "Git",

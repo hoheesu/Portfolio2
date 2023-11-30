@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import SkillIcon from "./SkillIcon";
-import { getSkillData } from "../api/api";
+import { getSkillData, getToolData } from "../api/api";
+import { skillArrayType, skillDataType } from "../type";
 
 interface CircleStyle {
   angle: number;
 }
 
 function Skills() {
-  const [leftCircle, setLeftCircle] = useState(false);
-  const [rightCircle, setRightCircle] = useState(false);
-
-  function leftCircleClick() {
-    setLeftCircle(!leftCircle);
-  }
-  function rightCircleClick() {
-    setRightCircle(!rightCircle);
-  }
+  const [leftCircle, setLeftCircle] = useState<boolean>(false);
+  const [rightCircle, setRightCircle] = useState<boolean>(false);
+  const [skillData, setSkillData] = useState<skillArrayType>([]);
+  const [toolData, setToolData] = useState<skillArrayType>([]);
 
   useEffect(() => {
-    getSkillData();
+    getSkillData(setSkillData);
+    getToolData(setToolData);
   }, []);
-  // const skillIncrement = 360 / skillItems.length;
-  // const etcIncrement = 360 / etcItems.length;
 
   return (
     <SkillContainer className="SkillContainer">
@@ -30,15 +25,18 @@ function Skills() {
         <IconContainer
           className={leftCircle ? "IconContainer active" : "IconContainer"}
         >
-          {/* {skillItems.map((Icon, index) => (
-            <CircleIcon key={index} angle={index * skillIncrement}>
-              <SkillIcon key={index} icon={Icon} iconType={"skill"} />
-            </CircleIcon>
-          ))} */}
+          {skillData.map((data: skillDataType, index) => {
+            console.log(data.title);
+            return (
+              <CircleIcon key={index} angle={(index * 360) / 8}>
+                <SkillIcon key={index} data={data} />
+              </CircleIcon>
+            );
+          })}
         </IconContainer>
         <Button
           className={leftCircle ? "active" : ""}
-          onClick={() => leftCircleClick()}
+          onClick={() => setLeftCircle(!leftCircle)}
         >
           Front-end
         </Button>
@@ -48,17 +46,19 @@ function Skills() {
         <IconContainer
           className={rightCircle ? "IconContainer active" : "IconContainer"}
         >
-          {/* {etcItems.map((Icon, index) => (
-            <CircleIcon key={index} angle={index * etcIncrement}>
-              <SkillIcon key={index} icon={Icon} iconType={"etc"} />
-            </CircleIcon>
-          ))} */}
+          {toolData.map((data: skillDataType, index) => {
+            return (
+              <CircleIcon key={index} angle={(index * 360) / 4}>
+                <SkillIcon key={index} data={data} />
+              </CircleIcon>
+            );
+          })}
         </IconContainer>
         <Button
           className={rightCircle ? "active" : ""}
-          onClick={() => rightCircleClick()}
+          onClick={() => setRightCircle(!rightCircle)}
         >
-          Etc
+          Tools
         </Button>
       </CircleContainer>
     </SkillContainer>
