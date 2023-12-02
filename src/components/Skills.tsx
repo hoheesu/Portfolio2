@@ -9,8 +9,12 @@ interface CircleStyle {
 }
 
 function Skills() {
-  const [leftCircle, setLeftCircle] = useState<boolean>(false);
-  const [rightCircle, setRightCircle] = useState<boolean>(false);
+  const [skillCircle, setSkillCircle] = useState<boolean>(false);
+  const [toolCircle, setToolCircle] = useState<boolean>(false);
+
+  const [skillHover, setSkillHover] = useState([false, "title", "detail"]);
+  const [toolHover, setToolHover] = useState([false, "title", "detail"]);
+
   const [skillData, setSkillData] = useState<skillArrayType>([]);
   const [toolData, setToolData] = useState<skillArrayType>([]);
 
@@ -20,50 +24,106 @@ function Skills() {
   }, []);
 
   return (
-    <SkillContainer className="SkillContainer">
-      <CircleContainer className="CircleContainer">
-        <IconContainer
-          className={leftCircle ? "IconContainer active" : "IconContainer"}
-        >
-          {skillData.map((data: skillDataType, index) => {
-            console.log(data.title);
-            return (
-              <CircleIcon key={index} angle={(index * 360) / 8}>
-                <SkillIcon key={index} data={data} />
-              </CircleIcon>
-            );
-          })}
+    <SkillContainer>
+      <CircleContainer>
+        <IconContainer className={skillCircle ? "active" : ""}>
+          {skillCircle
+            ? skillData.map((data: skillDataType, index) => {
+                return (
+                  <CircleIcon
+                    key={index}
+                    angle={(index * 360) / skillData.length}
+                    onMouseEnter={() =>
+                      setSkillHover([true, `${data.title}`, `${data.detail}`])
+                    }
+                    onMouseLeave={() =>
+                      setSkillHover([false, "title", "detail"])
+                    }
+                  >
+                    <SkillIcon key={index} data={data} />
+                  </CircleIcon>
+                );
+              })
+            : ""}
         </IconContainer>
         <Button
-          className={leftCircle ? "active" : ""}
-          onClick={() => setLeftCircle(!leftCircle)}
+          className={skillCircle ? "active" : ""}
+          onClick={() => setSkillCircle(!skillCircle)}
         >
-          Front-end
+          {skillHover[0] ? (
+            <>
+              <ButtonText className={skillHover[0] ? "" : "none"}>
+                <h1>{skillHover[1]}</h1> <span>{skillHover[2]}</span>
+              </ButtonText>
+            </>
+          ) : (
+            <>
+              <ButtonText className="none"></ButtonText>
+              <p>Front-end</p>
+            </>
+          )}
         </Button>
       </CircleContainer>
 
       <CircleContainer className="CircleContainer">
         <IconContainer
-          className={rightCircle ? "IconContainer active" : "IconContainer"}
+          className={toolCircle ? "IconContainer active" : "IconContainer"}
         >
           {toolData.map((data: skillDataType, index) => {
             return (
-              <CircleIcon key={index} angle={(index * 360) / 4}>
+              <CircleIcon
+                key={index}
+                angle={(index * 360) / toolData.length}
+                onMouseEnter={() =>
+                  setToolHover([true, `${data.title}`, `${data.detail}`])
+                }
+                onMouseLeave={() => setToolHover([false, "title", "detail"])}
+              >
                 <SkillIcon key={index} data={data} />
               </CircleIcon>
             );
           })}
         </IconContainer>
         <Button
-          className={rightCircle ? "active" : ""}
-          onClick={() => setRightCircle(!rightCircle)}
+          className={toolCircle ? "active" : ""}
+          onClick={() => setToolCircle(!toolCircle)}
         >
-          Tools
+          {toolHover[0] ? (
+            <>
+              <ButtonText className={toolHover[0] ? "" : "none"}>
+                <h1>{toolHover[1]}</h1> <span>{toolHover[2]}</span>
+              </ButtonText>
+            </>
+          ) : (
+            <>
+              <ButtonText className="none"></ButtonText>
+              <p>Tool</p>
+            </>
+          )}
         </Button>
       </CircleContainer>
     </SkillContainer>
   );
 }
+const ButtonText = styled.div`
+  font-size: 1.5rem;
+  opacity: 1;
+  scale: 1;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 0.5rem;
+  transition: all 0.5s ease-in-out;
+  span {
+    font-size: 1rem;
+  }
+  &.none {
+    opacity: 0;
+    scale: -1;
+    transition: all 0s ease-in-out;
+  }
+`;
 const SkillContainer = styled.div`
   height: 85vh;
   display: flex;
@@ -136,13 +196,20 @@ const Button = styled.button`
   background-color: var(--color-black);
   color: var(--color-white);
   font-weight: 700;
+  p {
+    transition: all 0.5s ease-in-out;
+  }
   &.active {
     border: transparent;
     background-color: var(--color-white);
     color: var(--color-black);
     width: 15rem;
     height: 15rem;
-    font-size: 2rem;
+    p {
+      opacity: 0;
+      transform: rotate(90deg);
+      scale: 0;
+    }
   }
 `;
 export default Skills;

@@ -8,7 +8,7 @@ interface Props {
 
 function SkillIcon(props: Props) {
   const data = props.data;
-  console.log(data.id);
+
   return (
     <div>
       <img
