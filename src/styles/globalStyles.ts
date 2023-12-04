@@ -26,6 +26,11 @@ const GlobalStyles = createGlobalStyle`
       .right-box {
         width: 60%;
       }
+      .container{
+        display: flex;
+        align-items: center;
+        height: 85vh;
+      }
   
   }
 

@@ -16,7 +16,7 @@ function AboutMe() {
     window.addEventListener("scroll", updateScroll);
   }, []);
   return (
-    <AboutMeContainer>
+    <AboutMeContainer className="container">
       <LeftBox className="left-box">
         <img src="/images/faceIcon.png" alt="Face Icon" />
         <Ul>
@@ -89,11 +89,7 @@ function AboutMe() {
     </AboutMeContainer>
   );
 }
-const AboutMeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  height: 85vh;
-`;
+const AboutMeContainer = styled.div``;
 const LeftBox = styled.div`
   gap: 2rem;
 `;

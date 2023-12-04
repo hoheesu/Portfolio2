@@ -24,7 +24,7 @@ function Skills() {
   }, []);
 
   return (
-    <SkillContainer>
+    <SkillContainer className="container">
       <CircleContainer>
         <IconContainer className={skillCircle ? "active" : ""}>
           {skillCircle
