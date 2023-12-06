@@ -43,6 +43,7 @@ function Header() {
 
 const FlexBox = styled.header`
   position: sticky;
+  z-index: 2;
   top: 0;
   width: 100vw;
   display: flex;

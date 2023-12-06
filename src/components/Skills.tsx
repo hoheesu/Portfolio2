@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
+import { FaLink } from "react-icons/fa";
 import SkillIcon from "./SkillIcon";
 import { getSkillData, getToolData } from "../api/api";
 import { skillArrayType, skillDataType } from "../type";
@@ -25,6 +26,10 @@ function Skills() {
 
   return (
     <SkillContainer className="container">
+      <h2 className="title">
+        <FaLink />
+        Skills
+      </h2>
       <CircleContainer>
         <IconContainer className={skillCircle ? "active" : ""}>
           {skillCircle
@@ -65,24 +70,26 @@ function Skills() {
         </Button>
       </CircleContainer>
 
-      <CircleContainer className="CircleContainer">
-        <IconContainer
-          className={toolCircle ? "IconContainer active" : "IconContainer"}
-        >
-          {toolData.map((data: skillDataType, index) => {
-            return (
-              <CircleIcon
-                key={index}
-                angle={(index * 360) / toolData.length}
-                onMouseEnter={() =>
-                  setToolHover([true, `${data.title}`, `${data.detail}`])
-                }
-                onMouseLeave={() => setToolHover([false, "title", "detail"])}
-              >
-                <SkillIcon key={index} data={data} />
-              </CircleIcon>
-            );
-          })}
+      <CircleContainer className="">
+        <IconContainer className={toolCircle ? "active" : ""}>
+          {toolCircle
+            ? toolData.map((data: skillDataType, index) => {
+                return (
+                  <CircleIcon
+                    key={index}
+                    angle={(index * 360) / toolData.length}
+                    onMouseEnter={() =>
+                      setToolHover([true, `${data.title}`, `${data.detail}`])
+                    }
+                    onMouseLeave={() =>
+                      setToolHover([false, "title", "detail"])
+                    }
+                  >
+                    <SkillIcon key={index} data={data} />
+                  </CircleIcon>
+                );
+              })
+            : ""}
         </IconContainer>
         <Button
           className={toolCircle ? "active" : ""}
@@ -189,18 +196,16 @@ const Button = styled.button`
   border-radius: 50%;
   width: 30rem;
   height: 30rem;
-  box-shadow: -5px -5px 10px 0px rgba(0, 0, 0, 0.3),
-    5px 5px 10px 0px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
   font-size: 2.5rem;
   background-color: var(--color-black);
   color: var(--color-white);
   font-weight: 700;
+  border: 2px solid var(--color-black);
   p {
     transition: all 0.5s ease-in-out;
   }
   &.active {
-    border: transparent;
     background-color: var(--color-white);
     color: var(--color-black);
     width: 15rem;

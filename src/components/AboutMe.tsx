@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BiRename } from "react-icons/bi";
-import { FaBirthdayCake, FaSearchLocation } from "react-icons/fa";
+import { FaBirthdayCake, FaSearchLocation, FaLink } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
@@ -17,6 +17,10 @@ function AboutMe() {
   }, []);
   return (
     <AboutMeContainer className="container">
+      <h2 className="title">
+        <FaLink />
+        About Me
+      </h2>
       <LeftBox className="left-box">
         <img src="/images/faceIcon.png" alt="Face Icon" />
         <Ul>

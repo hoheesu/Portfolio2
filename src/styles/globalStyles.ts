@@ -30,6 +30,20 @@ const GlobalStyles = createGlobalStyle`
         display: flex;
         align-items: center;
         height: 85vh;
+        position: relative;
+      }
+      .title {
+        position: absolute;
+        top: 1rem; left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+        color: var(--color-black);
+        display: flex; align-items: center;
+        gap: 0.5rem;
+        font-weight: 300;
+        svg{
+          color: var(--color-blue);
+        }
       }
   
   }
