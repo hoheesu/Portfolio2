@@ -5,20 +5,18 @@ import LandingMain from "./components/LandingMain";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe.tsx";
 import Skills from "./components/Skills.tsx";
-import Archive from "./components/Archive.tsx";
 
 function App() {
   return (
     <>
+      <GlobalStyles />
       <Container>
-        <GlobalStyles />
         <LandingMain />
       </Container>
       <Header />
       <Container>
         <AboutMe />
         <Skills />
-        <Archive />
         {/* <a
         href="https://www.flaticon.com/free-icons/portfolio"
         title="portfolio icons"
