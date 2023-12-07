@@ -1,10 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 function Header() {
-  useEffect(() => {}, []);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  }, []);
+
   return (
-    <FlexBox>
+    <FlexBox className={scrollPosition < 20 ? "none" : ""}>
       <LogoBox>
         <Logo>
           Front-End
@@ -57,6 +66,11 @@ const FlexBox = styled.header`
     background-color: var(--color-black);
     color: var(--color-white);
     backdrop-filter: blur(2px);
+  }
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  &.none {
+    opacity: 0;
   }
 `;
 const Logo = styled.h1`
