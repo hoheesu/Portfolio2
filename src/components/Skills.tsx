@@ -64,7 +64,10 @@ function Skills() {
           ) : (
             <>
               <ButtonText className="none"></ButtonText>
-              <p>Front-end</p>
+              <p>
+                Front-end <br />
+                Skills
+              </p>
             </>
           )}
         </Button>
@@ -104,7 +107,7 @@ function Skills() {
           ) : (
             <>
               <ButtonText className="none"></ButtonText>
-              <p>Tool</p>
+              <p>Tools</p>
             </>
           )}
         </Button>
@@ -136,6 +139,7 @@ const SkillContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: transparent;
 `;
 const CircleContainer = styled.div`
   position: relative;
@@ -167,6 +171,7 @@ const CircleIcon = styled.div<CircleStyle>`
   height: 7rem;
   border-radius: 50%;
   border: 2px solid var(--color-black);
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,6 +184,9 @@ const CircleIcon = styled.div<CircleStyle>`
     transition: all 0.5s ease-in-out;
   }
   &:hover {
+    background-color: transparent;
+    width: 8rem;
+    height: 8rem;
     border: transparent;
     img {
       width: 6rem;
@@ -198,10 +206,12 @@ const Button = styled.button`
   height: 30rem;
   transition: all 0.5s ease-in-out;
   font-size: 2.5rem;
-  background-color: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-black);
   font-weight: 700;
   border: 2px solid var(--color-black);
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40'><rect rx='20' width='100%' height='100%' fill='black' opacity='70%' /><text x='50%' y='50%' font-family='sans-serif' font-weight='bold' font-size='14' dominant-baseline='middle' text-anchor='middle' fill='white'>Click Me!!</text></svg>")
+      16 0,
+    auto;
   p {
     transition: all 0.5s ease-in-out;
   }

@@ -13,7 +13,12 @@ const GlobalStyles = createGlobalStyle`
         --color-white: #fff;
         --color-dark-gray: #555;
         --color-gray: #777;
+        --color-light-gray: #ccc;
         --color-blue: #1261d6;
+        --color-main: cadetblue
+      }
+      body { 
+        background-color: var(--color-main);
       }
       button{
       }
@@ -37,12 +42,12 @@ const GlobalStyles = createGlobalStyle`
         top: 1rem; left: 50%;
         transform: translateX(-50%);
         font-size: 2rem;
-        color: var(--color-black);
+        color: var(--color-white);
         display: flex; align-items: center;
         gap: 0.5rem;
-        font-weight: 300;
+        font-weight: 500;
         svg{
-          color: var(--color-blue);
+          color: var(--color-white);
         }
       }
   

@@ -66,7 +66,7 @@ function AboutMe() {
       <RightBox className="right-box">
         <p
           className={
-            scrollPosition > 200 && scrollPosition < 1000
+            scrollPosition > 500 && scrollPosition < 1000
               ? "scroll-text"
               : "scrolled-text"
           }
@@ -112,10 +112,11 @@ const List = styled.li`
     flex-direction: column;
     justify-items: center;
     text-align: center;
+    color: var(--color-white);
   }
   strong {
     font-size: 1.2rem;
-    color: var(--color-black);
+    color: var(--color-white);
     margin-bottom: 0.3rem;
   }
   &:nth-last-child(1) {
@@ -132,12 +133,12 @@ const RightBox = styled.div`
     strong {
       font-weight: 500;
       font-size: 1.2rem;
-      color: var(--color-blue);
+      color: var(--color-white);
       transition: 1s;
     }
   }
   .scrolled-text {
-    color: var(--color-black);
+    color: var(--color-light-gray);
     strong {
       transition: 1s;
     }

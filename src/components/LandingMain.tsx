@@ -30,7 +30,6 @@ const Wrap = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 `;
 
 const move = keyframes`
@@ -38,6 +37,7 @@ const move = keyframes`
     transform: translate(-50%, -50%) rotate(360deg);
   }
 `;
+
 const WaveWrap = styled.div`
   transition: all 0.5s ease-in-out;
   &.none {
@@ -50,20 +50,20 @@ const WaveWrap = styled.div`
   }
 `;
 const BackCircle = styled.div`
-  width: 50%;
-  height: 50%;
   position: absolute;
+  width: 700px;
+  height: 400px;
   border-radius: 100%;
-  top: 50%;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
   &.bc1 {
-    background: #f08080b5;
+    background: #f3ffb6d2;
     animation: ${move} 6s infinite linear;
   }
 
   &.bc2 {
-    background: #b6ffe3d4;
+    background: #b9b6ffd3;
     animation: ${move} 4s infinite linear;
   }
 `;
@@ -71,7 +71,7 @@ const BackCircle = styled.div`
 const Title = styled.h1`
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
   width: max-content;

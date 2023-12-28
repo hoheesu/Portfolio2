@@ -58,13 +58,14 @@ const FlexBox = styled.header`
   display: flex;
   height: 15vh;
   justify-content: space-between;
-  cursor: url("/images/mouse-dark.svg"), auto;
+  cursor: url("/images/mouse.svg"), auto;
   padding: 1rem;
   backdrop-filter: blur(2px);
   transition: all 0.5s ease-in;
+  color: var(--color-white);
   &:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
     backdrop-filter: blur(2px);
   }
   opacity: 1;
@@ -103,6 +104,9 @@ const Depth2ul = styled.ul`
 const Depth2li = styled.li`
   font-weight: 300;
   font-size: 1.2rem;
+  &:hover {
+    font-weight: 600;
+  }
 `;
 const LogoBox = styled.div``;
 export default Header;
