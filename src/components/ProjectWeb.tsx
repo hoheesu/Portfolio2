@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-
-function ProjectWeb() {
+interface Props {
+  num: string;
+}
+function ProjectWeb(props: Props) {
   return (
     <FlexBox>
+      <h1>{props.num}</h1>
       <LeftBox className="left-box"></LeftBox>
       <RightBox className="right-box"></RightBox>
     </FlexBox>
