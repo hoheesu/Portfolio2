@@ -3,11 +3,13 @@ import ProjectWeb from "./ProjectWeb";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 
 function Projects() {
   return (
-    <div className="container">
+    <Container className="container">
       <h2 className="title">React</h2>
       <SwiperStyle
         slidesPerView={1}
@@ -42,12 +44,22 @@ function Projects() {
           <ProjectWeb num="7" />
         </SwiperSlide>
       </SwiperStyle>
-    </div>
+    </Container>
   );
 }
+const Container = styled.div`
+  padding-bottom: 100px;
+`;
 const SwiperStyle = styled(Swiper)`
   width: 100%;
   height: 100%;
+  --swiper-navigation-color: var(--color-white);
+  .swiper-pagination-bullet-active {
+    --swiper-pagination-color: var(--color-white);
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+  }
 `;
 
 export default Projects;
